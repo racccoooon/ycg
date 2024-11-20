@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
+
 import typing
-from typing import TextIO
 import yaml
 from pathlib import Path
 import sys
@@ -44,7 +45,7 @@ class MergeByNode:
 
 
 class Reader:
-    def __init__(self, source: typing.Union[Path,  TextIO], basedir: Path, enable_templating: bool, template_data: dict):
+    def __init__(self, source: typing.Union[Path,  typing.TextIO], basedir: Path, enable_templating: bool, template_data: dict):
         self.source = source
         self.loader = yaml.SafeLoader
         self.enable_templating = enable_templating
@@ -196,7 +197,7 @@ def getenv(name, default=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(prog='ycg', description='yaml config garbage')
+    parser = argparse.ArgumentParser(prog='ycg', description='yaml config generator')
 
     parser.add_argument('input_files', nargs='+', default=[], type=filepath_type(must_exist=True), metavar='FILE',
                         help='input files (use \'-\' for stdin)')
@@ -210,6 +211,7 @@ def main():
     parser.add_argument('-b', '--basedir',
                         help='base directory for resolving paths in stdin input (ignored for files, defaults to current working directory)',
                         dest='basedir', metavar='DIR', default=Path.cwd())
+    parser.add_argument('--version', action='version', version='%(prog)s 1.0.0')
 
     args = parser.parse_args()
 
@@ -235,10 +237,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-"""
-curl -o ycg.py https://github.com/gwenya/ycr/blablabla.py
-chmod +x ycg.py
-sudo mv ycg.py /usr/local/bin/ycg
-
-"""

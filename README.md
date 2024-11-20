@@ -3,14 +3,14 @@ ycg merges and templates yaml files.
 
 ```
 $ ycg -h
-usage: ycg [-h] [-o FILE] [-d FILE] [-V KEY VALUE] [-b DIR] FILE [FILE ...]
+usage: ycg [-h] [-o FILE] [-d FILE] [-V KEY VALUE] [-b DIR] [--version] FILE [FILE ...]
 
 yaml config generator
 
 positional arguments:
   FILE                  input files (use '-' for stdin)
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -o FILE, --output FILE
                         output to this file (default is stdout)
@@ -19,7 +19,20 @@ optional arguments:
                         add a variable that can be used in templates
   -b DIR, --basedir DIR
                         base directory for resolving paths in stdin input (ignored for files, defaults to current working directory)
+  --version             show program's version number and exit
+```
 
+## Installation
+
+Install from PyPI with `pip install ycg` or just download the ycg.py file (make sure you have pyyaml and jinja2 installed).
+
+```bash
+$ curl -o ycg.py https://raw.githubusercontent.com/racccoooon/ycg/refs/heads/main/src/ycg.py
+$ chmod +x ycg.py
+# install to /usr/local/bin
+$ sudo mv ycg.py /usr/local/bin/ycg
+# or install to your local bin dir
+$ mv ycg.py ~/.local/bin/ycg
 ```
 
 

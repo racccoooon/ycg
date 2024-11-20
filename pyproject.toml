@@ -1,0 +1,21 @@
+[project]
+name = "ycg"
+version = "1.0.0"
+description = "ycg (yaml config generator) merges and templates yaml files"
+readme = "README.md"
+license = { text = "MIT License" }
+requires-python = ">=3.8"
+dynamic = ["dependencies"]
+
+[project.urls]
+Repository = "https://github.com/racccoooon/ycg"
+
+[project.scripts]
+ycg = "ycg:main"
+
+[build-system]
+requires = ["setuptools>=74.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
