@@ -1,3 +1,4 @@
+import typing
 from typing import TextIO
 import yaml
 from pathlib import Path
@@ -43,7 +44,7 @@ class MergeByNode:
 
 
 class Reader:
-    def __init__(self, source: Path | TextIO, basedir: Path, enable_templating: bool, template_data: dict):
+    def __init__(self, source: typing.Union[Path,  TextIO], basedir: Path, enable_templating: bool, template_data: dict):
         self.source = source
         self.loader = yaml.SafeLoader
         self.enable_templating = enable_templating
