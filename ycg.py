@@ -197,7 +197,7 @@ def getenv(name, default=None):
 def main():
     parser = argparse.ArgumentParser(prog='ycg', description='yaml config garbage')
 
-    parser.add_argument('input_files', nargs='*', default=['-'], type=filepath_type(must_exist=True), metavar='FILE',
+    parser.add_argument('input_files', nargs='+', default=[], type=filepath_type(must_exist=True), metavar='FILE',
                         help='input files (use \'-\' for stdin)')
     parser.add_argument('-o', '--output', dest='output_file', metavar='FILE', default='-',
                         type=filepath_type(parent_must_exist=True),
