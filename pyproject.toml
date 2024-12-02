@@ -5,7 +5,12 @@ description = "ycg (yaml config generator) merges and templates yaml files"
 readme = "README.md"
 license = { text = "MIT License" }
 requires-python = ">=3.8"
-dynamic = ["dependencies"]
+#dynamic = ["dependencies"]
+
+dependencies = [
+  "jinja2>=3.1.4",
+  "pyyaml>=6.0.2"
+]
 
 [project.urls]
 Repository = "https://github.com/racccoooon/ycg"
@@ -17,5 +22,5 @@ ycg = "ycg:main"
 requires = ["setuptools>=74.0.0"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.txt"] }
+#[tool.setuptools.dynamic]
+#dependencies = { file = ["requirements.txt"] }
